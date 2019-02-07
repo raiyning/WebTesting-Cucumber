@@ -18,11 +18,11 @@ class BbcLoginpage
     visit(LOGINPAGE_URL)
   end
 
-  def username(email)
+  def fill_username(email)
     fill_in(USER_FIELD, with: email)
   end
 
-  def password(pass)
+  def fill_password(pass)
     fill_in(PASSWAORD_FIELD, with: pass)
   end
 
