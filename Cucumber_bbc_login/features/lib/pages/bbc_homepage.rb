@@ -5,9 +5,8 @@ class BbcHomepage
 
   HOMEPAGE_URL = 'https://www.bbc.co.uk'.freeze
   LOGINPAGE_URL = 'https://account.bbc.com/signin'.freeze
-  SIGNIN_CLICK = 'idcta-username'.freeze
-  USER_FIELD = 'user-identifier-input'.freeze
-  PASSWAORD_FIELD = 'password-input'.freeze
+  SIGNIN_CLICK = 'idcta-link'.freeze
+
 
   def visit_homepage
     visit(HOMEPAGE_URL)
@@ -17,16 +16,8 @@ class BbcHomepage
     visit(LOGINPAGE_URL)
   end
 
-  def click_sigin
-    find(SIGNIN_CLICK).click
-  end
-
-  def username(email)
-    fill_in(USER_FIELD, with: email)
-  end
-
-  def password(pass)
-    fill_in(PASSWAORD_FIELD, with: pass)
+  def click_homepage_sign
+    find(:id, SIGNIN_CLICK).click
   end
 
 end
