@@ -18,7 +18,6 @@ end
 
 Then("I recieve an error for not finding the account") do
   expect(@bbc_site.bbc_loginpage.error_check).to eq (@bbc_site.bbc_loginpage.error)
-  sleep 2
 end
 
 Given("I access the bbc login page") do
@@ -32,5 +31,5 @@ Given("I input a password that is too short") do
 end
 
 Then("I receive an error for short password") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(@bbc_site.bbc_loginpage.error_short_check).to eq (@bbc_site.bbc_loginpage.errorshort)
 end
