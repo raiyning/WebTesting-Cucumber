@@ -33,3 +33,11 @@ end
 Then("I receive an error for short password") do
   expect(@bbc_site.bbc_loginpage.error_short_check).to eq (@bbc_site.bbc_loginpage.errorshort)
 end
+
+Given("I input correct username") do
+  @bbc_site.bbc_loginpage.fill_username('apple@banana.com')
+end
+
+Then("I receive an error saying the password details is empty") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
