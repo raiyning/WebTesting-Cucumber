@@ -41,3 +41,11 @@ end
 Then("I receive an error saying the password details is empty") do
   expect(@bbc_site.bbc_loginpage.error_short_check).to eq (@bbc_site.bbc_loginpage.erroremptypassword)
 end
+
+Given("I input wrong characters in username") do
+  @bbc_site.bbc_loginpage.fill_username('-?%<>DROP TABLE')
+end
+
+Then("I receive an error saying the username is incorrect") do
+  expect(@@bbc_site.bbc_loginpage.error_check).to eq @bbc_site.bbc_siginpage.erroruser
+end

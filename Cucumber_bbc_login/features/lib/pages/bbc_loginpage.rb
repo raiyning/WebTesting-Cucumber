@@ -45,5 +45,4 @@ class BbcLoginpage
   def error_empty_check
     find(:id, ERROR_EMPTY_PASSWORD).text
   end
-
 end
