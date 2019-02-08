@@ -19,3 +19,10 @@ Feature: BBC Login
     And I input correct username
     When I try to login
     Then I receive an error saying the password details is empty
+
+  Scenario: Input a username that includes illegal characters
+    Given I access the bbc login page
+    And I input wrong characters in username
+    And I input incorrect password details
+    When I try to login
+    Then I receive an error saying the username is incorrect
