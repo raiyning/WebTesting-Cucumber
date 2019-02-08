@@ -39,5 +39,5 @@ Given("I input correct username") do
 end
 
 Then("I receive an error saying the password details is empty") do
-  pending # Write code here that turns the phrase above into concrete actions
+  expect(@bbc_site.bbc_loginpage.error_short_check).to eq (@bbc_site.bbc_loginpage.erroremptypassword)
 end
