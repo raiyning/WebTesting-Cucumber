@@ -1,0 +1,51 @@
+Given("I access the BBC login page") do
+  @bbc_site = BbcSite.new
+  @bbc_site.bbc_homepage.visit_homepage
+  @bbc_site.bbc_homepage.click_homepage_sign
+end
+
+Given("I input incorrect username details") do
+  @bbc_site.bbc_loginpage.fill_username('mhzfxnhgnhf@ghghghf.com')
+end
+
+Given("I input incorrect password details") do
+  @bbc_site.bbc_loginpage.fill_password('thisispassword23')
+end
+
+When("I try to login") do
+  @bbc_site.bbc_loginpage.click_signin_loginpage
+end
+
+Then("I recieve an error for not finding the account") do
+  expect(@bbc_site.bbc_loginpage.error_check).to eq (@bbc_site.bbc_loginpage.error)
+end
+
+Given("I access the bbc login page") do
+  @bbc_site = BbcSite.new
+  @bbc_site.bbc_homepage.visit_homepage
+  @bbc_site.bbc_homepage.click_homepage_sign
+end
+
+Given("I input a password that is too short") do
+  @bbc_site.bbc_loginpage.fill_password('pp')
+end
+
+Then("I receive an error for short password") do
+  expect(@bbc_site.bbc_loginpage.error_short_check).to eq (@bbc_site.bbc_loginpage.errorshort)
+end
+
+Given("I input correct username") do
+  @bbc_site.bbc_loginpage.fill_username('apple@banana.com')
+end
+
+Then("I receive an error saying the password details is empty") do
+  expect(@bbc_site.bbc_loginpage.error_short_check).to eq (@bbc_site.bbc_loginpage.erroremptypassword)
+end
+
+Given("I input wrong characters in username") do
+  @bbc_site.bbc_loginpage.fill_username('-?%<>DROP TABLE')
+end
+
+Then("I receive an error saying the username is incorrect") do
+  expect(@@bbc_site.bbc_loginpage.error_check).to eq @bbc_site.bbc_siginpage.erroruser
+end
